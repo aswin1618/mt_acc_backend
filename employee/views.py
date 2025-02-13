@@ -33,9 +33,9 @@ class EmployeeDetailAPIView(APIView):
         serializer = EmployeeSerializer(employee)
         return Response(serializer.data)
 
-    def put(self, request, pk):
+    def patch(self, request, pk):
         employee = get_object_or_404(Employee, pk=pk)
-        serializer = EmployeeSerializer(employee, data=request.data)
+        serializer = EmployeeSerializer(employee, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "Employee updated!", "data": serializer.data}, status=202)
