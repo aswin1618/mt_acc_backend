@@ -17,4 +17,45 @@
     python manage.py migrate
     ```
 
-## API Usage
+## API Usage Endpoints
+
+→ List all employees.
+```sh
+GET /api/employees/ 
+```
+
+→ Create a new employee.
+```sh
+POST /api/employees/
+```
+Content-Type: application/json
+example json
+```json
+{
+    "name": "John Doe",
+    "position": "Software Engineer",
+    "salary": "75000.00",
+    "age": 24
+}
+```
+
+→ Retrieve an employee.
+```sh
+GET /api/employees/<id>/
+```
+
+→ Update an employee.
+```sh
+PATCH /api/employees/<id>/ 
+```
+example json
+```json
+{
+    "position": "Senior Software Engineer"
+}
+```
+
+→ Delete an employee.
+```sh
+DELETE /api/employees/<id>/
+```
